@@ -25,8 +25,8 @@ while jogando:
         sua_carta = random.choice(cards)
         your_cards.append(sua_carta)
 
-    soma_dealer = dealer_cards[0] + dealer_cards[1]
-    sua_soma = your_cards[0] + your_cards[1]
+    soma_dealer = sum(dealer_cards)
+    sua_soma = sum(your_cards)
     
     print(f'Suas cartas: {your_cards}. Cartas do dealer: {dealer_cards[0]}, ?')
     continuando = True
@@ -42,10 +42,9 @@ while jogando:
                     print('Você estourou!')
                     continuando = False
                     jogando = False
-
             else:
                 if soma_dealer < 16:
-                    while soma_dealer < 16:
+                    while soma_dealer <= 16:
                         dealer_cards.append(random.choice(cards))
                         soma_dealer += dealer_cards[-1]
                     if soma_dealer > 21:
